@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".SplashScreen"
-    android:background="#fece2f">
+    android:background="@color/colorPrimary">
 
     <ImageView
         android:id="@+id/uley_logo_image"
@@ -14,6 +14,7 @@
         android:layout_marginStart="10dp"
         android:layout_marginTop="150dp"
         android:layout_marginEnd="10dp"
+        android:transitionName="logo_image"
         android:src="@raw/uley_logo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -26,6 +27,7 @@
         android:layout_marginTop="30dp"
         android:fontFamily="@font/autour_one"
         android:text="Uley"
+        android:transitionName="logo_text"
         android:textAlignment="center"
         android:textSize="70sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -39,6 +41,7 @@
         android:layout_marginTop="5dp"
         android:fontFamily="@font/antic"
         android:text="Простые заметки"
+        android:transitionName="slogan_text"
         android:textAlignment="center"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
