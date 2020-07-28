@@ -19,7 +19,7 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
-public class MainActivity extends AppCompatActivity /*implements View.OnClickListener*/{
+public class MainActivity extends AppCompatActivity {
 
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthStateListener;
@@ -42,6 +42,7 @@ public class MainActivity extends AppCompatActivity /*implements View.OnClickLis
                 if (user != null){
                     Intent intent = new Intent(MainActivity.this, Lists.class);
                     startActivity(intent);
+                    finish();
                 }
                 else {
 
@@ -79,13 +80,12 @@ public class MainActivity extends AppCompatActivity /*implements View.OnClickLis
 
 
     public void signIn(String email, String pass){
-        final String raz = email;
         mAuth.signInWithEmailAndPassword(email, pass).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()){
                 Toast.makeText(MainActivity.this,"Вход выполнен", Toast.LENGTH_SHORT).show();}
-                else Toast.makeText(MainActivity.this,raz + " Ошибка входа", Toast.LENGTH_SHORT).show();
+                else Toast.makeText(MainActivity.this,"Ошибка входа", Toast.LENGTH_SHORT).show();
             }
         });
     }
