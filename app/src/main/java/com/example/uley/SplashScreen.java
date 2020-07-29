@@ -1,15 +1,14 @@
 package com.example.uley;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
 import android.app.ActivityOptions;
 import android.content.Intent;
-import android.media.Image;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Pair;
 import android.view.View;
-import android.view.Window;
 import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
@@ -23,6 +22,7 @@ public class SplashScreen extends AppCompatActivity {
     Animation topAnim, bottomAnim;
     ImageView image;
     TextView logo, slogan;
+    ConstraintLayout back;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +36,7 @@ public class SplashScreen extends AppCompatActivity {
         image = findViewById(R.id.uley_logo_image);
         logo = findViewById(R.id.uley_logo_text);
         slogan = findViewById(R.id.logo_descr);
+        back = findViewById(R.id.splash_back);
 
         image.setAnimation(topAnim);
         logo.setAnimation(bottomAnim);
@@ -44,11 +45,12 @@ public class SplashScreen extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                Intent intent = new Intent(SplashScreen.this, MainActivity.class);
-                Pair[] pairs = new Pair[3];
+                Intent intent = new Intent(SplashScreen.this, Login.class);
+                Pair[] pairs = new Pair[4];
                 pairs[0] = new Pair<View,String>(image,"logo_image");
                 pairs[1] = new Pair<View,String>(logo,"logo_text");
                 pairs[2] = new Pair<View,String>(slogan,"slogan_text");
+                pairs[3] = new Pair<View,String>(back,"background");
 
                 ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(SplashScreen.this,pairs);
                 startActivity(intent,options.toBundle());

@@ -8,27 +8,29 @@
     tools:context=".Lists">
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/tv_list_tasks"
+        android:id="@+id/list_tasks"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_above="@+id/new_task"
-        android:layout_alignParentTop="true"
-        >
+        android:clickable="true"
+        android:background="?attr/selectableItemBackground"
+        android:layout_alignParentTop="true"/>
 
-    </androidx.recyclerview.widget.RecyclerView>
 
     <EditText
         android:id="@+id/new_task"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:textColorHint="@color/common_google_signin_btn_text_dark"
-        android:text="Введите новую задачу"/>
+        android:textColorHint="@color/colorBlack"
+        android:transitionName="logo_text"
+        android:hint="Введите новую задачу"/>
 
     <Button
         android:id="@+id/btn_new_task"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:transitionName="login_btn"
         android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true"
         android:text="Добавить" />
