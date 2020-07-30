@@ -60,6 +60,9 @@ public class Login extends AppCompatActivity {
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if(!validateEmail() | !validatePass()){
+                    return;
+                }
                 signIn(ETEmail.getEditText().getText().toString(),ETPass.getEditText().getText().toString());
             }
         });
@@ -93,6 +96,36 @@ public class Login extends AppCompatActivity {
                 else Toast.makeText(Login.this,"Ошибка входа", Toast.LENGTH_SHORT).show();
             }
         });
+    }
+
+    private boolean validateEmail (){
+        String val = ETEmail.getEditText().getText().toString();
+        String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
+        if (val.isEmpty()){
+            ETEmail.setError("Поле не может быть пустым");
+            return false;
+        }else if (!val.matches(emailPattern)){
+            ETEmail.setError("Введенеа некоректная почта");
+            return false;
+        }
+        else {
+            ETEmail.setError(null);
+            return true;
+        }
+    }
+    private boolean validatePass (){
+        String val = ETPass.getEditText().getText().toString();
+        if (val.isEmpty()){
+            ETPass.setError("Поле не может быть пустым");
+            return false;
+        }else if(val.length()<=6){
+            ETPass.setError("Пароль должен быть длиннее 6 символов");
+            return false;
+        }
+        else {
+            ETPass.setError(null);
+            return true;
+        }
     }
 
 }

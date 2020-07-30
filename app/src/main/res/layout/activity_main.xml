@@ -50,7 +50,7 @@
             android:id="@+id/username"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Логин"
+            android:hint="Почта"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
             <com.google.android.material.textfield.TextInputEditText
@@ -80,8 +80,10 @@
             android:layout_height="wrap_content"
             android:layout_gravity="right"
             android:background="#00000000"
-            android:text="Забыли паротль?"
+            android:text="Забыли пароль?"
             android:elevation="0dp"
+            android:textSize="16dp"
+            android:textAllCaps="false"
             android:layout_margin="5dp"/>
 
         <Button
@@ -89,6 +91,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Войти"
+            android:textSize="18dp"
+            android:textAllCaps="false"
             android:transitionName="login_btn"
             android:background="@color/colorBlack"
             android:textColor="#fff"
@@ -102,6 +106,8 @@
             android:layout_gravity="right"
             android:transitionName="reg_btn"
             android:background="#00000000"
+            android:textSize="16dp"
+            android:textAllCaps="false"
             android:text="Зарегистрироваться"
             android:elevation="0dp"
             android:layout_margin="5dp"/>
