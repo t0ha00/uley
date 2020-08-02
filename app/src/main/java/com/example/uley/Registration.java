@@ -27,7 +27,7 @@ import java.util.HashMap;
 
 public class Registration extends AppCompatActivity {
 
-    private TextInputLayout ETPass, ETEmail, ETName;
+    private TextInputLayout ETPass, ETEmail;
     private Button haveAcc, regButton;
 
     private ImageView image;
@@ -44,7 +44,6 @@ public class Registration extends AppCompatActivity {
 
         mAuth = FirebaseAuth.getInstance();
 
-        ETName = findViewById(R.id.name);
         ETEmail = findViewById(R.id.username);
         ETPass = findViewById(R.id.password);
 
@@ -87,11 +86,9 @@ public class Registration extends AppCompatActivity {
                     FirebaseUser firebaseuser = mAuth.getCurrentUser();
                     assert firebaseuser != null;
                     String userId = firebaseuser.getUid();
-                    String name = ETName.getEditText().getText().toString();
                     reference = FirebaseDatabase.getInstance().getReference("Users").child(userId);
                     HashMap<String, String> hashMap = new HashMap<>();
                     hashMap.put("id", userId);
-                    hashMap.put("userName", name);
 
                     reference.setValue(hashMap).addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override
