@@ -2,23 +2,25 @@
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:padding="2dp">
 
     <LinearLayout
+        android:id="@+id/important_color"
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <ImageView
-            android:id="@+id/type_of_task"
-            android:layout_width="50sp"
-            android:layout_height="50sp"/>
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        android:outlineSpotShadowColor="@color/colorGray">
 
         <TextView
             android:id="@+id/name_task"
             android:text="Default name"
-            android:textSize="19sp"
-            android:textAlignment="center"
+            android:padding="5dp"
+            android:fontFamily="sans-serif-black"
+            android:textSize="30sp"
+            android:textColor="@color/colorBlack"
+            android:textAlignment="viewStart"
             android:layout_width="match_parent"
             android:layout_height="match_parent"/>
     </LinearLayout>

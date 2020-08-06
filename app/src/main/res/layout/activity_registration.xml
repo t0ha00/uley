@@ -86,7 +86,7 @@
             android:textSize="18dp"
             android:textAllCaps="false"
             android:transitionName="login_btn"
-            android:background="@color/colorBlack"
+            android:background="@drawable/rounded_container"
             android:textColor="#fff"
             android:layout_marginTop="5dp"
             android:layout_marginBottom="5dp"/>

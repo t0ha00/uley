@@ -3,14 +3,22 @@ package com.example.uley;
 public class Tasks {
 
     String name;
-    String typeOfTask;
+    String color;
 
     public Tasks() {
     }
 
-    public Tasks(String name, String typeOfTask) {
+    public String getColor() {
+        return color;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
+    }
+
+    public Tasks(String name, String color) {
         this.name = name;
-        this.typeOfTask = typeOfTask;
+        this.color = color;
     }
 
     public String getName() {
@@ -21,11 +29,4 @@ public class Tasks {
         this.name = name;
     }
 
-    public String getTypeOfTask() {
-        return typeOfTask;
-    }
-
-    public void setTypeOfTask(String typeOfTask) {
-        this.typeOfTask = typeOfTask;
-    }
 }

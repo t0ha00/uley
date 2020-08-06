@@ -92,7 +92,9 @@ public class Login extends AppCompatActivity {
                 if (task.isSuccessful()){
                 Toast.makeText(Login.this,"Вход выполнен", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(Login.this,Lists.class);
-                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);}
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
+                finish();}
                 else Toast.makeText(Login.this,"Ошибка входа", Toast.LENGTH_SHORT).show();
             }
         });

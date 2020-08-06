@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/settings_option"
+        android:title="Настройки"
+        app:showAsAction="never"/>
+
+    <item
+        android:id="@+id/about_option"
+        android:title="О приложении"
+        app:showAsAction="never"/>
+
+    <item
+        android:id="@+id/logout_option"
+        android:title="Выход"
+        app:showAsAction="never"/>
+</menu>
