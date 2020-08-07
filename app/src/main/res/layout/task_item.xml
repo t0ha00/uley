@@ -3,7 +3,10 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="2dp">
+    android:paddingLeft="2dp"
+    android:paddingRight="2dp"
+    android:paddingBottom="1dp"
+    android:paddingTop="1dp">
 
     <LinearLayout
         android:id="@+id/important_color"
@@ -16,7 +19,8 @@
         <TextView
             android:id="@+id/name_task"
             android:text="Default name"
-            android:padding="5dp"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
             android:fontFamily="sans-serif-black"
             android:textSize="30sp"
             android:textColor="@color/colorBlack"
