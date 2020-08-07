@@ -38,9 +38,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class SubTasks extends AppCompatActivity {
-
-    private static final int TIME_INTERVAL = 2000; // # milliseconds, desired time passed between two back presses.
-    private long mBackPressed;
+    private final Integer MAX_NUM_OF_TASKS = 10;
 
     private ArrayList<Tasks> tasksList;
     private Button addNewTaskBtn;
@@ -48,12 +46,10 @@ public class SubTasks extends AppCompatActivity {
     private Toolbar mToolBar;
     private EditText textNewTask;
     private ImageView openInputGroupBtn;
-    private ConstraintLayout inputGroup;
     private SubTaskAdapter subTaskAdapter;
 
     private DatabaseReference myRef,refToTasks;
     private FirebaseAuth mAuth;
-    private final Integer MAX_NUM_OF_TASKS = 10;
     public String nameMainTask;
 
     @Override
@@ -67,7 +63,6 @@ public class SubTasks extends AppCompatActivity {
         addNewTaskBtn = findViewById(R.id.btn_new_task);
         textNewTask = findViewById(R.id.new_task);
         openInputGroupBtn = findViewById(R.id.open_input_module_sub);
-        inputGroup = findViewById(R.id.input_group);
         mToolBar = findViewById(R.id.tasks_list_bar);
         setSupportActionBar(mToolBar);
         getSupportActionBar().setTitle(nameMainTask);
@@ -255,14 +250,8 @@ public class SubTasks extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        if(inputGroup.getVisibility() == View.VISIBLE) {
-            inputGroup.setVisibility(View.GONE);
-            openInputGroupBtn.setVisibility(View.VISIBLE);}
-        else {
-            Intent intent = new Intent(SubTasks.this, Lists.class);
-            startActivity(intent);
+
             finish();
-        }
     }
 
     @Override

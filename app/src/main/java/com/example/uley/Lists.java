@@ -174,34 +174,42 @@ public class Lists extends AppCompatActivity {
 
     private void GetDataFromFirebase() {
 
-        FirebaseUser firebaseuser = mAuth.getCurrentUser();
-        assert firebaseuser != null;
-        String userId = firebaseuser.getUid();
-        Query query = myRef.child("Users").child(userId);
+        try {
+            FirebaseUser firebaseuser = mAuth.getCurrentUser();
+            assert firebaseuser != null;
+            String userId = firebaseuser.getUid();
+            Query query = myRef.child("Users").child(userId);
 
-        query.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                ClearAllList();
-                for (DataSnapshot snapshot : dataSnapshot.getChildren()){
-                    Tasks tasks = new Tasks();
+            query.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+                    ClearAllList();
+                    for (DataSnapshot snapshot : dataSnapshot.getChildren()){
+                        Tasks tasks = new Tasks();
 
-                    tasks.setName(snapshot.child("name").getValue().toString());
-                    tasks.setColor(snapshot.child("color").getValue().toString());
+                        try {
+                            tasks.setName(snapshot.child("name").getValue().toString());
+                            tasks.setColor(snapshot.child("color").getValue().toString());
 
-                    tasksList.add(tasks);
+                            tasksList.add(tasks);
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                    }
+
+                    recyclerAdapter = new RecyclerAdapter(getApplicationContext(), tasksList);
+                    myTaskList.setAdapter(recyclerAdapter);
+                    recyclerAdapter.notifyDataSetChanged();
                 }
 
-                recyclerAdapter = new RecyclerAdapter(getApplicationContext(), tasksList);
-                myTaskList.setAdapter(recyclerAdapter);
-                recyclerAdapter.notifyDataSetChanged();
-            }
+                @Override
+                public void onCancelled(@NonNull DatabaseError error) {
 
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-        });
+                }
+            });
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
     }
 
